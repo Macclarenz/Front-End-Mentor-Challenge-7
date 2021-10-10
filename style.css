@@ -43,7 +43,7 @@
     scroll-behavior: smooth;
 }
 
-h1, p {
+h1, h2, p {
     font-family: var(--headings-paragraph-font-family);
 }
 
@@ -68,6 +68,7 @@ main {
     background-size: 230vmax;
     background-position-x: 37%;
     background-position-y: 35%;
+    border-radius: revert;
     min-height: 100vh;
     width: 100%;
     padding: 2em;
@@ -450,9 +451,9 @@ nav.nav-active .nav-list-2{
     color: var(--headings);
 }
 
-.dftf-container h1,
-.sai-container h1,
-.fos-container h1 {
+.dftf-container h2,
+.sai-container h2,
+.fos-container h2 {
     font-size: 28px;
     margin-block: 1em;
 }
@@ -854,8 +855,8 @@ footer p {
         font-size: 38px;
     }
 
-    .dftf-container .main-text h1, 
-    .fos-container .main-text h1 {
+    .dftf-container .main-text h2, 
+    .fos-container .main-text h2 {
         font-size: 34px;
     }
 
