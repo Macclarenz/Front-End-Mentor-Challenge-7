@@ -442,8 +442,9 @@ nav.nav-active .nav-list-2{
     transform: translateY(0);
 }
 
-.dftf-container section + section {
-    margin-top: 4em;;
+.dftf-container section + section,
+.fos-container section + section {
+    margin-top: 4em;
 }
 
 .dftf-container h1,
@@ -492,7 +493,7 @@ nav.nav-active .nav-list-2{
 .sai-circle {
     position: absolute;
     width: min(160%, 1200px);
-    bottom: -120px;
+    bottom: 38%;
     left: -30%;
 }
 
@@ -521,7 +522,11 @@ nav.nav-active .nav-list-2{
 
 .sai-container .main-text {
     color: white;
-    width: 90%;
+    width: 100%;
+}
+
+.sai-container h1 {
+	margin-block: 1em;
 }
 
 /* FOS */
