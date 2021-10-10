@@ -157,6 +157,10 @@ nav.nav-active .nav-list-2{
     list-style: none;
 }
 
+.nav-list li {
+    position: relative;
+}
+
 .nav-dropdown-btn {
     background-color: transparent;
     border: none;
@@ -166,6 +170,7 @@ nav.nav-active .nav-list-2{
     color: var(--footer-background);
     cursor: pointer;
     transition: color 250ms ease-in-out;
+    margin-top: .5em;
 }
 
 .nav-dropdown-btn + .nav-dropdown-btn {
@@ -190,40 +195,36 @@ nav.nav-active .nav-list-2{
     position: relative;
 }
 
-.nav-dropdown-btn:hover::before,
-.nav-dropdown-btn:focus::before {
-    transform: scaleX(1);
-}
-
 .nav-dropdown-active::after {
     transform: translateY(-35%) rotateX(180deg);
+}
+
+.nav-dropdown-container {
+    max-height: 0;
+    transform: scaleY(0);
+    transition: max-height 300ms ease-out,
+                transform 250ms ease-out;
+    transform-origin: top;
+    
 }
 
 .nav-dropdown-list {
     background-color: rgb(236, 236, 236);
     border-radius: .5em;
-    padding: 0;
+    padding: 1.8em;
     margin-block: 1.5em;
-    transform: scaleY(0);
-    transform-origin: top;
-    height: 0px;
-    overflow-y: hidden;
-    transition: padding 250ms ease-out,
-                transform 250ms ease-out,
-                height 250ms ease-in-out;
 }
 
 .nav-dropdown-active {
     color: var(--body-copy);
 }
 
-.nav-dropdown-active + .nav-dropdown-list {
-    padding: 1.8em;
+.nav-dropdown-active + .nav-dropdown-container {
     transform: scaleY(1);
-    height: 100%;
+    max-height: 350px;
 }
 
-.nav-dropdown-active + .nav-dropdown-list li {
+.nav-dropdown-active + .nav-dropdown-container li {
     opacity: 1;
 }
 
@@ -231,7 +232,7 @@ nav.nav-active .nav-list-2{
     display: flex;
     justify-content: center;
     opacity: 0;
-    transition: opacity 250ms ease-in-out 200ms;
+    transition: opacity 250ms ease-in-out 250ms;
 }
 
 .nav-dropdown-active li {
@@ -699,6 +700,7 @@ footer p {
     .nav-dropdown-btn {
         position: relative;
         color: rgba(255, 255, 255, 0.712);
+        margin-top: 0;
     }
 
     .nav-dropdown-btn:hover,
@@ -708,13 +710,13 @@ footer p {
 
     .nav-dropdown-active {
         color: white;
-        border-bottom: 2px solid white;
-        transition: all 250ms ease-in-out;
-        transform-origin: left;
+        position: relative;
+        border-bottom: 3px solid white;
     }
 
     .nav-list > li + li {
         margin-left: 2em;
+        margin-top: revert;
     }
 
     .nav-dropdown-btn::after {
@@ -734,16 +736,32 @@ footer p {
         transition: transform 250ms ease-in-out;
     }
 
-    .nav-dropdown-list {
+    .nav-dropdown-btn:hover::before {
+        transform: scaleX(1);
+    }
+
+    .nav-dropdown-container {
         position: absolute;
+    }
+
+    .nav-dropdown-list {
+        position: relative;
         top: 100%;
-        height: 200px;
         margin-block: 1em;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 150px;
-        box-shadow: rgba(63, 63, 63, 0.247) 0 10px 20px 5px;
+        width: 230px;
+        max-width: 250px;
+        background-color: white;
+        height: auto;
+        padding: 1.8em;
+        box-shadow: rgba(124, 124, 124, 0.199) 0px 5px 8px;
+
+    }
+
+    .nav-list-2 {
+        margin-top: 0;
     }
 
     .nav-list-2 a {
@@ -770,19 +788,8 @@ footer p {
         color: white !important;
     }
 
-    .nav-dropdown-list {
-        background-color: white;
-        height: auto;
-        padding: 1.8em;
-    }
-
     .nav-dropdown-list a {
         text-align: center;
-    }
-
-    .nav-dropdown-active + .nav-dropdown-list {
-        transform: scaleY(1);
-        height: auto;
     }
 
     .hero-container h1 {
@@ -793,8 +800,9 @@ footer p {
         font-size: clamp(42px, 10vw, 60px);
     }
 
-    .hero-container :where(p, a) {
-        font-size: 21px !important;
+    .hero-container p, 
+    .hero-container a {
+        font-size: 21px;
     }
 
     .hero-links a {
@@ -968,6 +976,26 @@ footer p {
 }
 
 @media screen and (min-width: 1800px) {
+    p, a, button {
+        font-size: 24px !important;
+    }
+
+    .nav-list-2 a {
+        width: min(100vw, 200px);
+    }
+
+    .nav-dropdown-list a {
+        font-size: 21px !important;
+    }
+
+    .hero-container h1 {
+        font-size: 70px;
+    }
+
+    .hero-links a {
+        width: 200px;
+    }
+
     .main-text,
     .main-text p {
         max-width: 100ch !important;
