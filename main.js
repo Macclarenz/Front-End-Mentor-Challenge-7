@@ -54,7 +54,7 @@ function reveal () {
 // SLIDER ANIMATION
 const tl = gsap.timeline({defaults: {ease: 'power1.out'}});
 
-tl.fromTo('.slider-h1', {opacity: 0,}, {opacity: 1.5, delay: .35, duration: .8, stagger: .25})
+tl.fromTo('.slider-h2', {opacity: 0,}, {opacity: 1.5, delay: .35, duration: .8, stagger: .25})
 tl.to('.slider', { opacity: 0, duration: .5, delay: .8, zIndex: -1});
 tl.fromTo('.header-container', {opacity: 0}, {opacity: 1, duration: .3});
 tl.fromTo('main', {opacity: 0}, {opacity: 1, duration: .3}, '-=0.3');
