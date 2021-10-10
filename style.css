@@ -208,7 +208,9 @@ nav.nav-active .nav-list-2{
     transform-origin: top;
     height: 0px;
     overflow-y: hidden;
-    transition: all 250ms ease-out;
+    transition: padding 250ms ease-out,
+                transform 250ms ease-out,
+                height 250ms ease-in-out;
 }
 
 .nav-dropdown-active {
